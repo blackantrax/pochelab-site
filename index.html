@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PocheLab · Ton téléphone, ton atelier IA</title>
+<meta name="description" content="Le guide en français pour créer des pages web, des systèmes automatiques, du contenu et de vrais outils codés avec Claude, depuis ton téléphone, sans savoir coder.">
+<meta property="og:title" content="PocheLab · Ton téléphone, ton atelier IA">
+<meta property="og:description" content="7 jours, 7 projets réels. Crée avec l'IA depuis ton téléphone, sans savoir coder.">
+<meta property="og:image" content="og-image.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icone-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* hero */
+.hero{padding:56px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(3rem,7.4vw,5.6rem);line-height:.98;margin-bottom:1.6rem;letter-spacing:-.025em}
+.hero p.intro{font-size:1.22rem;margin-bottom:2rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.faits{display:flex;gap:28px;flex-wrap:wrap;margin-top:2.2rem;font-family:var(--sans);font-size:.85rem;color:var(--pierre)}
+.faits b{display:block;font-family:var(--titre);font-size:1.7rem;font-weight:400;color:var(--encre);letter-spacing:-.02em;line-height:1.1}
+/* telephone */
+.scene{display:flex;justify-content:center;position:relative}
+.scene::before{content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:var(--sable);top:8%;z-index:0}
+.tel{position:relative;z-index:1;width:290px;aspect-ratio:9/19;background:var(--encre);border-radius:46px;padding:11px;box-shadow:0 40px 70px -30px rgba(26,27,34,.55),0 0 0 1.5px #3a3b46 inset;transform:rotate(-4deg)}
+.tel::before{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:20px;background:var(--encre);z-index:3}
+.ecran{height:100%;border-radius:36px;background:var(--papier);overflow:hidden;display:flex;flex-direction:column;gap:10px;padding:54px 14px 14px;font-family:var(--sans);font-size:.74rem;line-height:1.45}
+.bulle{padding:10px 13px;border-radius:16px;max-width:86%}
+.bulle.moi{background:var(--encre);color:var(--papier);align-self:flex-end;border-bottom-right-radius:5px}
+.bulle.lui{background:#fff;color:var(--encre);border-bottom-left-radius:5px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.apercu{flex:1;min-height:0;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.apercu img{width:100%;height:100%;object-fit:cover;object-position:top}
+.enligne{align-self:center;font-weight:600;color:var(--terre);font-size:.72rem}
+.etiquette{position:absolute;z-index:2;background:#fff;border-radius:14px;padding:10px 14px;font-family:var(--sans);font-size:.78rem;box-shadow:0 14px 30px -12px rgba(26,27,34,.35);color:var(--encre)}
+.etiquette b{display:block;font-family:var(--titre);font-size:1.15rem;font-weight:600}
+.e1{left:0;top:22%}
+.e2{right:2%;bottom:16%}
+/* constat */
+.trois{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:3rem}
+.trois .n{font-family:var(--titre);font-style:italic;font-size:2.4rem;color:var(--terre);line-height:1;margin-bottom:.8rem}
+.trois h3{margin-bottom:.5rem}
+.trois p{color:#55524B;font-size:1rem}
+/* realisations */
+.galerie{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:3rem}
+.galerie figure img{border-radius:18px;aspect-ratio:390/640;object-fit:cover;object-position:top;width:100%;background:#2a2b33}
+.galerie figcaption{padding-top:16px}
+.galerie figcaption b{display:block;font-family:var(--titre);font-weight:600;font-size:1.2rem;color:var(--papier)}
+.galerie figcaption span{font-size:.98rem;color:#B9B2A6}
+/* programme */
+.programme{margin-top:2.6rem;display:grid;gap:0}
+.jour{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:26px 0}
+.jour .j{font-family:var(--titre);font-style:italic;font-size:1.25rem;color:var(--terre)}
+.jour h3{margin-bottom:.35rem}
+.jour p{color:#55524B;font-size:1rem;max-width:620px}
+.jour.code{background:var(--encre);border-radius:22px;padding:30px 30px;margin:10px -30px}
+.jour.code h3{color:var(--papier)}
+.jour.code p{color:#B9B2A6}
+.jour.code .j{color:var(--terre-claire)}
+.marque-code{font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terre-claire);margin-left:10px;vertical-align:middle;font-weight:600}
+/* contenu */
+.livres{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:3rem}
+.livres img{width:100%;aspect-ratio:148/210;object-fit:cover;border-radius:4px 10px 10px 4px;box-shadow:0 30px 40px -24px rgba(26,27,34,.6),inset 0 0 0 1px rgba(0,0,0,.05);margin-bottom:22px}
+.livres h3{margin-bottom:.4rem}
+.livres p{color:#55524B;font-size:1rem}
+.kit{margin-top:3rem;background:var(--papier2);border-radius:22px;padding:30px 34px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
+.kit .n{font-family:var(--titre);font-size:3.4rem;color:var(--terre);line-height:1}
+.kit p{color:#55524B}
+/* pour qui */
+.colonnes{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:2.4rem}
+.colonnes h3{margin-bottom:1rem}
+.colonnes ul{list-style:none}
+.colonnes li{padding:9px 0 9px 28px;position:relative;font-size:1.02rem}
+.colonnes li::before{position:absolute;left:0;top:9px;font-family:var(--titre);font-size:1.1rem}
+.oui li::before{content:"+";color:var(--terre-claire)}
+.non li::before{content:"\00d7";color:#9C958A}
+/* auteur */
+.auteur{display:grid;grid-template-columns:150px 1fr;gap:40px;align-items:start}
+.monogramme{width:150px;height:150px;border-radius:50%;background:var(--encre);color:var(--papier);display:grid;place-items:center;font-family:var(--titre);font-style:italic;font-size:3.6rem}
+.auteur p{font-size:1.12rem;color:#3E3C36;margin-bottom:1rem}
+.signature{font-family:var(--titre);font-style:italic;font-size:1.6rem;color:var(--encre)}
+/* prix */
+.offres{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:3rem;align-items:stretch}
+.offre{background:var(--encre2);border-radius:26px;padding:36px;display:flex;flex-direction:column;color:#D9D3C8}
+.offre.vedette{background:var(--papier);color:var(--texte)}
+.offre h3{font-size:1.7rem;color:var(--papier)}
+.offre.vedette h3{color:var(--encre)}
+.offre .pour{font-style:italic;margin:.3rem 0 1.4rem;color:#B9B2A6}
+.offre.vedette .pour{color:#6E6A64}
+.montant{font-family:var(--titre);font-size:3.4rem;line-height:1;letter-spacing:-.03em;color:var(--papier)}
+.offre.vedette .montant{color:var(--encre)}
+.montant s{font-size:1.3rem;color:#8A847A;margin-left:10px;letter-spacing:0}
+html.normal .montant s,html.normal .barre{display:none}
+.fcfa{font-family:var(--sans);font-size:.92rem;margin:.6rem 0 1.6rem;color:#B9B2A6}
+.offre.vedette .fcfa{color:#6E6A64}
+.offre ul{list-style:none;flex:1;margin-bottom:1.8rem}
+.offre li{padding:7px 0 7px 22px;position:relative;font-size:1rem}
+.offre li::before{content:"";position:absolute;left:2px;top:17px;width:7px;height:7px;border-radius:50%;background:var(--terre-claire)}
+.offre.vedette li::before{background:var(--terre)}
+.payer{display:grid;gap:10px}
+.payer small{text-align:center;font-family:var(--sans);font-size:.8rem;color:#8A847A;margin-top:4px}
+.ruban{font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terre);font-weight:600;margin-bottom:.6rem}
+.delai{text-align:center;font-style:italic;color:#B9B2A6;margin-top:2rem}
+html.normal .delai{display:none}
+.garantie{max-width:640px;margin:2.4rem auto 0;text-align:center;color:#B9B2A6}
+.garantie b{color:var(--papier);font-weight:600}
+/* faq */
+details{padding:22px 0}
+details+details{margin-top:0}
+summary{font-family:var(--titre);font-size:1.25rem;color:var(--encre);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--titre);color:var(--terre);font-size:1.6rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:.8rem;color:#55524B;max-width:640px}
+/* capture */
+.capture{background:var(--papier2);border-radius:30px;padding:56px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.capture img{width:200px;justify-self:center;transform:rotate(4deg);border-radius:4px 10px 10px 4px;box-shadow:0 30px 40px -24px rgba(26,27,34,.6)}
+@media (max-width:900px){
+  .hero .wrap,.auteur,.capture{grid-template-columns:1fr}
+  .hero{padding-top:28px}
+  .scene{margin-top:12px}
+  .tel{width:250px}
+  .trois,.galerie,.livres,.offres,.colonnes{grid-template-columns:1fr}
+  .galerie figure,.livres>div{max-width:400px}
+  .jour{grid-template-columns:1fr;gap:6px}
+  .jour.code{margin:10px 0;padding:26px 22px}
+  .kit{grid-template-columns:1fr;padding:26px}
+  .capture{padding:34px 26px}
+  .capture img{order:-1;width:150px}
+  .monogramme{width:96px;height:96px;font-size:2.4rem}
+  .offre{padding:28px 24px}
+  .e1{left:-4px}.e2{right:-4px}
+}
+</style>
+</head>
+<body>
+
+<header class="entete"><div class="wrap">
+  <a class="marque" href="index.html"><img src="favicon.svg" alt="">Poche<i>Lab</i></a>
+  <a class="btn btn-encre" href="#prix">Obtenir le guide</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Le guide en français · 7 jours · 7 projets</span>
+    <h1>Ton téléphone,<br><em>ton atelier IA.</em></h1>
+    <p class="intro">Apprends à créer des pages web, des réservations automatiques, du contenu qui attire des clients et de vrais outils codés avec Claude. Depuis ton téléphone, sans savoir coder.</p>
+    <div class="actions">
+      <a class="btn btn-terre" href="#prix">Commencer maintenant</a>
+      <a class="btn btn-ligne" href="guide-gratuit.html">Le mini-guide gratuit</a>
+    </div>
+    <div class="faits">
+      <span><b>70</b>pages de guide</span>
+      <span><b>102</b>prompts testés</span>
+      <span><b>4</b>modèles de code</span>
+    </div>
+  </div>
+  <div class="scene">
+    <div class="tel"><div class="ecran">
+      <div class="bulle moi">Crée une page pour le salon Beauté Divine, avec les prix et un bouton WhatsApp.</div>
+      <div class="bulle lui">Voici ta page, pensée pour le téléphone.</div>
+      <div class="apercu"><img src="exemple-vitrine.jpg" alt="Exemple de page créée depuis un téléphone"></div>
+      <div class="enligne">En ligne en 20 minutes</div>
+    </div></div>
+    <div class="etiquette e1"><b>0</b>ordinateur</div>
+    <div class="etiquette e2"><b>Mobile Money</b>ou carte bancaire</div>
+  </div>
+</div></section>
+
+<section style="padding-top:24px"><div class="wrap">
+  <span class="eyebrow">Le constat</span>
+  <h2>Tout le monde parle d'IA.<br><em>Peu s'en servent pour fabriquer.</em></h2>
+  <p class="intro">La plupart des gens posent des questions à l'IA. Ceux qui avancent s'en servent pour construire : des outils, des systèmes, des services qu'ils vendent.</p>
+  <div class="trois">
+    <div><div class="n">i.</div><h3>« Je n'ai pas d'ordinateur »</h3><p>Chaque projet du guide se fait depuis l'application Claude et le navigateur de ton téléphone.</p></div>
+    <div><div class="n">ii.</div><h3>« Je ne sais pas coder »</h3><p>Tu n'écris pas le code. Tu apprends à décrire ce que tu veux, et à vérifier le résultat.</p></div>
+    <div><div class="n">iii.</div><h3>« Je ne sais pas par où commencer »</h3><p>Un module par jour, un projet concret à la fin de chacun. En une semaine, tu as un portfolio.</p></div>
+  </div>
+</div></section>
+
+<section class="sombre"><div class="wrap">
+  <span class="eyebrow">Ce que tu vas construire</span>
+  <h2>De vrais outils, <em>pas de la théorie.</em></h2>
+  <p class="intro">Trois des modèles que tu construis pendant la semaine, et que tu reçois prêts à publier.</p>
+  <div class="galerie">
+    <figure><img src="exemple-vitrine.jpg" alt="Page vitrine d'un salon de beauté"><figcaption><b>La page vitrine</b><span>Services, prix, horaires, réservation WhatsApp en un geste.</span></figcaption></figure>
+    <figure><img src="exemple-devis.jpg" alt="Calculateur de devis"><figcaption><b>Le calculateur de devis</b><span>Codé avec Claude Code, total en direct, envoi sur WhatsApp.</span></figcaption></figure>
+    <figure><img src="exemple-menu.jpg" alt="Menu digital de restaurant"><figcaption><b>Le menu digital</b><span>Toujours à jour, commande directe, prêt pour un code QR.</span></figcaption></figure>
+  </div>
+</div></section>
+
+<section id="programme"><div class="wrap">
+  <span class="eyebrow">Le programme</span>
+  <h2>Sept jours, <em>sept projets.</em></h2>
+  <div class="programme">
+    <div class="jour"><div class="j">Jour un</div><div><h3>Démarrer avec Claude sur ton téléphone</h3><p>Le bon forfait, ton profil, tes Projets : un espace de travail réglé pour toi.</p></div></div>
+    <div class="jour"><div class="j">Jour deux</div><div><h3>Bien demander, la méthode CADRE</h3><p>Cinq éléments qui donnent un résultat utilisable du premier coup, et ta bibliothèque de prompts.</p></div></div>
+    <div class="jour"><div class="j">Jour trois</div><div><h3>Créer et publier une page web</h3><p>Une vraie page avec réservation WhatsApp, publiée gratuitement, avec un lien à partager.</p></div></div>
+    <div class="jour"><div class="j">Jour quatre</div><div><h3>Automatiser</h3><p>Un système de réservation qui enregistre les demandes et envoie les confirmations tout seul.</p></div></div>
+    <div class="jour"><div class="j">Jour cinq</div><div><h3>Créer du contenu qui attire des clients</h3><p>Scripts vidéo, carrousels, sous-titres et un calendrier de trente jours.</p></div></div>
+    <div class="jour code"><div class="j">Jour six</div><div><h3>Coder depuis ton téléphone avec Claude Code <span class="marque-code">Le module code</span></h3><p>Claude Code travaille sur ton projet GitHub dans le cloud pendant que ton téléphone est dans ta poche. Tu relis, tu valides, ton outil est en ligne.</p></div></div>
+    <div class="jour"><div class="j">Jour sept</div><div><h3>Vendre ce que tu crées</h3><p>Tes offres, tes prix, ton portfolio et tes dix premiers messages de prospection.</p></div></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <span class="eyebrow">Ce que tu reçois</span>
+  <h2>Tout pour <em>passer à l'action.</em></h2>
+  <div class="livres">
+    <div><img src="couverture-guide.jpg" alt="Le guide complet"><h3>Le guide complet</h3><p>Sept modules, des prompts prêts à copier, et un projet réel à la fin de chaque module.</p></div>
+    <div><img src="couverture-pack.jpg" alt="Le pack avancé"><h3>Le pack avancé</h3><p>102 prompts et 12 gabarits : métiers, fichiers CLAUDE.md, devis, livraison. Inclus dans la formule Complète.</p></div>
+    <div><img src="couverture-mini.jpg" alt="Le mini-guide"><h3>Le mini-guide et les mises à jour</h3><p>Les dix prompts essentiels en format court, et les nouvelles versions du guide sans frais.</p></div>
+  </div>
+  <div class="kit"><div class="n">4</div><div><h3>modèles de code prêts à publier</h3><p>Page vitrine, calculateur de devis, menu digital et robot de réservation Google. Utilisables pour toi et pour tes clients.</p></div></div>
+</div></section>
+
+<section class="sombre"><div class="wrap">
+  <span class="eyebrow">Est-ce pour toi ?</span>
+  <h2>Sois honnête <em>avec toi-même.</em></h2>
+  <div class="colonnes">
+    <div class="oui"><h3>C'est pour toi si</h3><ul>
+      <li>Tu veux une compétence concrète, utile tout de suite</li>
+      <li>Tu as un téléphone et trente à soixante minutes par jour</li>
+      <li>Tu veux proposer des services aux commerces autour de toi</li>
+      <li>Tu as un commerce et tu veux t'équiper toi-même</li>
+      <li>Tu es prêt à faire les projets, pas seulement à lire</li>
+    </ul></div>
+    <div class="non"><h3>Ce n'est pas pour toi si</h3><ul>
+      <li>Tu cherches à gagner de l'argent sans travailler</li>
+      <li>Tu attends une promesse de revenus chiffrée</li>
+      <li>Tu es déjà développeur expérimenté</li>
+      <li>Tu ne veux pas t'abonner à Claude Pro, nécessaire pour le module six</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap etroit auteur">
+  <div class="monogramme">LP</div>
+  <div>
+    <span class="eyebrow">Un mot de l'auteur</span>
+    <p>Je construis des outils numériques avec l'IA, très souvent depuis mon téléphone, entre deux rendez-vous. Pages, petits systèmes, outils pour des commerces : tout ce que tu trouveras dans ce guide, je l'utilise.</p>
+    <p>PocheLab est la méthode que j'aurais aimé avoir au départ : concrète, en français, pensée pour ceux qui n'ont ni ordinateur puissant ni formation en code. Pas de promesse magique, juste une compétence qui sert, et sept projets pour la prouver.</p>
+    <div class="signature">Léo Poulain</div>
+  </div>
+</div></section>
+
+<section class="sombre" id="prix"><div class="wrap">
+  <div style="text-align:center">
+    <span class="eyebrow"><span class="barre">Prix de lancement · </span>Paiement unique</span>
+    <h2>Choisis <em>ta formule.</em></h2>
+    <p class="intro" style="margin:0 auto">Accès immédiat par courriel. Carte bancaire, PayPal ou Mobile Money.</p>
+  </div>
+  <div class="offres">
+    <div class="offre">
+      <h3>Essentiel</h3><p class="pour">Le guide et le kit pour créer tes premiers outils.</p>
+      <div class="montant"><span data-prix="essentiel.cad">19 $</span><s data-prix-normal="essentiel.cad">29 $</s></div>
+      <div class="fcfa">ou <span data-prix="essentiel.fcfa">6 900 FCFA</span><span class="barre"> au lieu de <span data-prix-normal="essentiel.fcfa">9 900 FCFA</span></span></div>
+      <ul><li>Le guide complet, sept modules</li><li>Le kit de code, quatre modèles</li><li>Le module Claude Code depuis le téléphone</li><li>Le mini-guide et les mises à jour</li></ul>
+      <div class="payer"><a class="btn btn-clair" data-lien="essentielCarte">Payer par carte</a><a class="btn btn-clair" data-lien="essentielMobile">Payer par Mobile Money</a></div>
+    </div>
+    <div class="offre vedette">
+      <div class="ruban">Le choix le plus complet</div>
+      <h3>Complète</h3><p class="pour">Tout l'Essentiel, plus la bibliothèque pour aller vite chaque jour.</p>
+      <div class="montant"><span data-prix="complete.cad">39 $</span><s data-prix-normal="complete.cad">59 $</s></div>
+      <div class="fcfa">ou <span data-prix="complete.fcfa">12 900 FCFA</span><span class="barre"> au lieu de <span data-prix-normal="complete.fcfa">19 900 FCFA</span></span></div>
+      <ul><li>Tout le contenu de la formule Essentiel</li><li>Le pack avancé : 102 prompts testés</li><li>Douze gabarits : métiers, CLAUDE.md, devis, livraison</li><li>Les mises à jour du guide et du pack</li></ul>
+      <div class="payer"><a class="btn btn-terre" data-lien="completeCarte">Payer par carte</a><a class="btn btn-encre" data-lien="completeMobile">Payer par Mobile Money</a><small>Prix en dollars canadiens et en francs CFA</small></div>
+    </div>
+  </div>
+  <p class="delai">Prix de lancement jusqu'au <span data-fin>30 novembre</span>.</p>
+  <p class="garantie" data-garantie><b>Garantie de sept jours.</b> Fais les trois premiers modules. Si tu n'as rien appris d'utile, écris-nous dans les sept jours suivant l'achat : tu es remboursé.</p>
+</div></section>
+
+<section><div class="wrap etroit">
+  <span class="eyebrow">Questions fréquentes</span>
+  <h2>Avant de <em>te décider.</em></h2>
+  <details><summary>Je n'ai jamais codé. Est-ce vraiment pour moi ?</summary><p>Oui. Le guide est écrit pour les débutants. Tu décris ce que tu veux, Claude écrit le code, et tu apprends à vérifier le résultat. Chaque étape est expliquée pour le téléphone.</p></details>
+  <details><summary>Ai-je besoin d'un ordinateur ?</summary><p>Non. Tous les projets se font depuis un iPhone ou un Android. Un ordinateur rend certaines étapes plus confortables, sans être nécessaire.</p></details>
+  <details><summary>Faut-il payer un abonnement à Claude ?</summary><p>Les modules un à cinq peuvent commencer avec la version gratuite. Le module six, Claude Code, demande le forfait Pro, environ 20 $ US par mois au moment d'écrire, sans engagement.</p></details>
+  <details><summary>Comment je reçois le guide ?</summary><p>Immédiatement après le paiement, par courriel, avec un lien de téléchargement. Les fichiers sont en PDF, lisibles sur téléphone.</p></details>
+  <details><summary>Je suis en Afrique. Comment payer ?</summary><p>Choisis « Payer par Mobile Money » : tu paies avec ton téléphone, sans carte bancaire, dans les pays pris en charge.</p></details>
+  <details><summary>Combien vais-je gagner ?</summary><p>Personne d'honnête ne peut te le promettre. Le guide te donne une compétence, une méthode et des modèles. Le module sept montre comment proposer des services ; les résultats dépendent de ton travail et de ton marché.</p></details>
+  <details><summary>Ce guide est-il officiel ?</summary><p>Non. PocheLab est un guide indépendant, non affilié à Anthropic, l'entreprise qui développe Claude.</p></details>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="capture">
+    <div>
+      <span class="eyebrow">Pas encore prêt ?</span>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem)">Commence <em>gratuitement.</em></h2>
+      <p class="intro" style="margin-bottom:1.6rem">Dix prompts pour créer depuis ton téléphone, à essayer dès ce soir.</p>
+      <a class="btn btn-terre" href="guide-gratuit.html">Recevoir le mini-guide</a>
+    </div>
+    <img src="couverture-mini.jpg" alt="Le mini-guide gratuit">
+  </div>
+</div></section>
+
+<footer class="pied"><div class="wrap">
+  <div><div class="marque">Poche<i>Lab</i></div>Ton atelier IA, dans ta poche.<br>Guide indépendant, non affilié à Anthropic. Claude est une marque d'Anthropic.</div>
+  <div><a href="conditions.html">Conditions de vente</a><a href="confidentialite.html">Confidentialité</a><a data-lien="courriel">Contact</a><br><br>© <span id="annee">2026</span> PocheLab</div>
+</div></footer>
+
+<script src="config.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenue · PocheLab</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.m{padding:64px 0 96px}
+.m h1{font-size:clamp(2.4rem,6vw,3.8rem);margin-bottom:1.2rem}
+.plan{display:grid;gap:0;margin:2.4rem 0}
+.plan div{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:14px 0}
+.plan b{font-family:var(--titre);font-style:italic;font-weight:400;color:var(--terre);font-size:1.15rem}
+.pack{margin-top:48px;background:var(--papier2);border-radius:26px;padding:40px;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center}
+.pack img{width:150px;transform:rotate(-3deg);border-radius:4px 10px 10px 4px;box-shadow:0 30px 40px -24px rgba(26,27,34,.6)}
+.pack h2{font-size:clamp(1.6rem,4vw,2.2rem)}
+.pack .prix{font-family:var(--titre);font-size:2.2rem;color:var(--encre);margin:.4rem 0 1.2rem}
+.pack .prix small{font-family:var(--sans);font-size:.9rem;color:var(--pierre);margin-left:8px}
+.pack .boutons{display:flex;gap:10px;flex-wrap:wrap}
+.reseaux{margin-top:48px}
+.reseaux a{margin-right:18px;font-family:var(--sans);font-weight:600;color:var(--terre);text-decoration:none}
+@media (max-width:760px){.pack{grid-template-columns:1fr;padding:28px}.pack img{width:120px}.plan div{grid-template-columns:1fr;gap:2px}}
+</style>
+</head>
+<body>
+<header class="entete"><div class="wrap"><a class="marque" href="index.html"><img src="favicon.svg" alt="">Poche<i>Lab</i></a></div></header>
+<section class="m"><div class="wrap etroit">
+  <span class="eyebrow">Merci pour ta confiance</span>
+  <h1>Bienvenue dans <em>PocheLab.</em></h1>
+  <p class="intro">Tes fichiers arrivent par courriel dans les minutes qui viennent. Pense à vérifier le dossier des courriels indésirables, puis à mettre notre adresse dans tes contacts.</p>
+
+  <div class="plan">
+    <div><b>Aujourd'hui</b><span>Lis le module un et installe Claude. Trente minutes suffisent.</span></div>
+    <div><b>Demain</b><span>Module deux : la méthode CADRE. Commence ta note « Mes prompts ».</span></div>
+    <div><b>Jour trois</b><span>Ta première page en ligne. C'est le moment où tout devient concret.</span></div>
+  </div>
+
+  <div class="pack">
+    <img src="couverture-pack.jpg" alt="Le pack avancé">
+    <div>
+      <span class="eyebrow">Si tu as choisi l'Essentiel</span>
+      <h2>Ajoute le <em>pack avancé.</em></h2>
+      <p>102 prompts testés et 12 gabarits pour aller deux fois plus vite chaque jour. Prix réservé aux acheteurs du guide.</p>
+      <div class="prix"><span data-prix="pack.cad">19 $</span><small>ou <span data-prix="pack.fcfa">6 000 FCFA</span></small></div>
+      <div class="boutons"><a class="btn btn-terre" data-lien="packCarte">Par carte</a><a class="btn btn-ligne" data-lien="packMobile">Par Mobile Money</a></div>
+    </div>
+  </div>
+
+  <div class="reseaux">
+    <p style="margin-bottom:.6rem">Partage tes créations en nous identifiant :</p>
+    <a data-lien="tiktok" data-masquer-si-vide>TikTok</a><a data-lien="instagram" data-masquer-si-vide>Instagram</a><a data-lien="youtube" data-masquer-si-vide>YouTube</a><a data-lien="facebook" data-masquer-si-vide>Facebook</a>
+  </div>
+  <p style="margin-top:2rem;color:var(--pierre)">Rien reçu après une heure ? Écris-nous : <a data-lien="courriel">nous contacter</a>.</p>
+</div></section>
+<footer class="pied"><div class="wrap"><div><div class="marque">Poche<i>Lab</i></div>Guide indépendant, non affilié à Anthropic.</div><div><a href="conditions.html">Conditions</a><a href="confidentialite.html">Confidentialité</a><br><br>© <span id="annee">2026</span> PocheLab</div></div></footer>
+<script src="config.js"></script><script src="site.js"></script>
+</body>
+</html>

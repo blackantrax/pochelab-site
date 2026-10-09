@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ton mini-guide · PocheLab</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.m{padding:64px 0 96px}
+.m h1{font-size:clamp(2.4rem,6vw,3.8rem);margin-bottom:1.2rem}
+.etapes{counter-reset:e;list-style:none;margin:2rem 0 2.4rem}
+.etapes li{counter-increment:e;padding:10px 0 10px 46px;position:relative}
+.etapes li::before{content:counter(e);position:absolute;left:0;top:6px;font-family:var(--titre);font-style:italic;font-size:1.6rem;color:var(--terre)}
+.suite{margin-top:56px;background:var(--encre);color:#D9D3C8;border-radius:26px;padding:40px}
+.suite h2{color:var(--papier);font-size:clamp(1.7rem,4vw,2.3rem)}
+.suite h2 em{color:var(--terre-claire)}
+.suite p{margin:.6rem 0 1.6rem;color:#B9B2A6}
+</style>
+</head>
+<body>
+<header class="entete"><div class="wrap"><a class="marque" href="index.html"><img src="favicon.svg" alt="">Poche<i>Lab</i></a></div></header>
+<section class="m"><div class="wrap etroit">
+  <span class="eyebrow">C'est pour toi</span>
+  <h1>Ton mini-guide est <em>prêt.</em></h1>
+  <p class="intro">Télécharge-le maintenant et garde-le sur ton téléphone.</p>
+  <p style="margin-top:1.6rem"><a class="btn btn-terre" href="pochelab-mini-guide.pdf" download>Télécharger le mini-guide (PDF)</a></p>
+  <ol class="etapes">
+    <li>Ouvre le PDF et choisis un seul prompt : le numéro deux, la page web avec WhatsApp.</li>
+    <li>Fais-le ce soir, pour un commerce que tu connais.</li>
+    <li>Envoie-lui le lien. Sa réaction te dira tout.</li>
+  </ol>
+  <div class="suite">
+    <h2>Prêt à aller <em>plus loin ?</em></h2>
+    <p>Le guide complet t'accompagne pendant sept jours et sept projets réels, jusqu'à coder un outil avec Claude Code depuis ton téléphone.</p>
+    <a class="btn btn-clair" href="index.html#programme">Découvrir le guide complet</a>
+  </div>
+</div></section>
+<footer class="pied"><div class="wrap"><div><div class="marque">Poche<i>Lab</i></div>Guide indépendant, non affilié à Anthropic.</div><div><a href="conditions.html">Conditions</a><a href="confidentialite.html">Confidentialité</a><br><br>© <span id="annee">2026</span> PocheLab</div></div></footer>
+<script src="config.js"></script><script src="site.js"></script>
+</body>
+</html>
